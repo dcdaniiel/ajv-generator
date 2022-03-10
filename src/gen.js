@@ -1,23 +1,39 @@
 const Ajv = require('ajv')
-const AjvKeywords = require('ajv-keywords')
+const addKeywords = require('ajv-keywords')
+const addFormats = require('ajv-formats')
 
-const { isEmpty } = require('lodash/lang')
-const { getType } = require('./types')
+const { isEmpty } = require('lodash')
+const { getType, format } = require('./utils')
 
 const data = {
   data: {
     compositeResponse: [
       {
-        body: [
-          {
-            fields: ['Email__c'],
-            message: 'Campos obrigatórios ausentes: [Email__c]',
-            errorCode: 'REQUIRED_FIELD_MISSING',
-          },
-        ],
-        httpHeaders: {},
+        body: {
+          id: 'a055e000009iuAdAAI',
+          errors: [],
+          created: false,
+          success: true,
+        },
+        httpHeaders: {
+          Location:
+            '/services/data/v52.0/sobjects/PedidoEmprestimo__c/a055e000009iuAdAAI',
+        },
+        referenceId: 'approvalId_12431767',
+        httpStatusCode: 200,
+      },
+      {
+        body: {
+          id: '0015e00000o8DC0AAM',
+          errors: [],
+          created: false,
+          success: true,
+        },
+        httpHeaders: {
+          Location: '/services/data/v52.0/sobjects/Account/0015e00000o8DC0AAM',
+        },
         referenceId: 'refConta',
-        httpStatusCode: 400,
+        httpStatusCode: 200,
       },
     ],
   },
@@ -38,6 +54,11 @@ const genSchema = (obj) => {
       case 'object':
         return genSchema(val)
 
+      // case 'string':
+      //   return {
+      //     format: format(val),
+      //   }
+
       default:
         return {}
     }
@@ -57,7 +78,10 @@ const genSchema = (obj) => {
 
   const result = { type }
 
-  if (type !== 'string') {
+  if (type === 'string') {
+    result.format = format(obj)
+  } else {
+    result.required = Object.keys(obj)
     result.properties = getProperties(obj)
   }
 
@@ -69,7 +93,8 @@ const schema = genSchema(data)
 console.log('SCHEMA ::: ', JSON.stringify(schema, null, 2))
 
 const ajv = new Ajv()
-AjvKeywords(ajv)
+addKeywords(ajv)
+addFormats(ajv)
 
 const validate = ajv.compile(schema)
 
