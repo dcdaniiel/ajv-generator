@@ -1,0 +1,35 @@
+{
+  "name": "ajv-generator",
+  "version": "0.0.1",
+  "description": "ajv generator should be generate automatically an schema based on javascript object",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcdaniiel/ajv-generator.git"
+  },
+  "keywords": [
+    "ajv",
+    "generator",
+    "schema"
+  ],
+  "author": "Daniel Teixeira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dcdaniiel/ajv-generator/issues"
+  },
+  "homepage": "https://github.com/dcdaniiel/ajv-generator#readme",
+  "devDependencies": {
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
