@@ -1,5 +1,5 @@
 {
-  "name": "ajv-generator",
+  "name": "ajv-schema-generator",
   "version": "0.0.1",
   "description": "ajv generator should be generate automatically an schema based on javascript object",
   "main": "index.js",
