@@ -1,6 +1,4 @@
-# Ajv Schema Generator
-
-<img src="https://ajv-schema-generator.vercel.app/view.png" alt="app ajv schema generator">
+<a href="https://ajv-schema-generator.vercel.app/"><img src="https://ajv-schema-generator.vercel.app/view.png" /></a>
 
 ## 🚀 Install
 ```
@@ -107,6 +105,3 @@
        }
     }
 ```
-
-## Demo:
-<a href="https://ajv-schema-generator.vercel.app/"><img src="https://ajv-schema-generator.vercel.app/view.png" width="300px;" height="300px" /></a>
