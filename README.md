@@ -1,6 +1,10 @@
 <a href="https://ajv-schema-generator.vercel.app/"><img src="https://ajv-schema-generator.vercel.app/view.png" /></a>
 
-## 🚀 Install
+## live demo
+<a href="https://ajv-schema-generator.vercel.app/">Demo</a>
+
+
+## Install
 ```
     npm i ajv-schema-generator
 ```
